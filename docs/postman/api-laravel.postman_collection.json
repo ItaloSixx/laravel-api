@@ -1,0 +1,533 @@
+{
+  "info": {
+    "_postman_id": "c03af2f7-edd5-45f7-acb2-9bbdb06620b6",
+    "name": "api-laravel",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39268042"
+  },
+  "item": [
+    {
+      "name": "Importação de XML",
+      "item": [
+        {
+          "name": "POST Import Hotels",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": []
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}{{apiPrefix}}/import/hotels",
+              "host": [
+                "{{baseUrl}}{{apiPrefix}}"
+              ],
+              "path": [
+                "import",
+                "hotels"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request POST '{{baseUrl}}{{apiPrefix}}/import/hotels' --header 'Accept: application/json' --header 'Content-Type: application/json'"
+          },
+          "response": []
+        },
+        {
+          "name": "POST Import Rooms",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": []
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}{{apiPrefix}}/import/rooms",
+              "host": [
+                "{{baseUrl}}{{apiPrefix}}"
+              ],
+              "path": [
+                "import",
+                "rooms"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request POST '{{baseUrl}}{{apiPrefix}}/import/rooms' --header 'Accept: application/json' --header 'Content-Type: application/json'"
+          },
+          "response": []
+        },
+        {
+          "name": "POST Import Rates",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": []
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}{{apiPrefix}}/import/rates",
+              "host": [
+                "{{baseUrl}}{{apiPrefix}}"
+              ],
+              "path": [
+                "import",
+                "rates"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request POST '{{baseUrl}}{{apiPrefix}}/import/rates' --header 'Accept: application/json' --header 'Content-Type: application/json'"
+          },
+          "response": []
+        },
+        {
+          "name": "POST Import Reservations",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": []
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}{{apiPrefix}}/import/reservations",
+              "host": [
+                "{{baseUrl}}{{apiPrefix}}"
+              ],
+              "path": [
+                "import",
+                "reservations"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request POST '{{baseUrl}}{{apiPrefix}}/import/reservations' --header 'Accept: application/json' --header 'Content-Type: application/json'"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "CRUD de Quartos",
+      "item": [
+        {
+          "name": "GET Rooms",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": []
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}{{apiPrefix}}/rooms",
+              "host": [
+                "{{baseUrl}}{{apiPrefix}}"
+              ],
+              "path": [
+                "rooms"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request GET '{{baseUrl}}{{apiPrefix}}/rooms' --header 'Accept: application/json'"
+          },
+          "response": []
+        },
+        {
+          "name": "GET Room By Id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": []
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}{{apiPrefix}}/rooms/{{roomId}}",
+              "host": [
+                "{{baseUrl}}{{apiPrefix}}"
+              ],
+              "path": [
+                "rooms",
+                "{{roomId}}"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request GET '{{baseUrl}}{{apiPrefix}}/rooms/{{roomId}}' --header 'Accept: application/json'"
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Room",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"id\":99999,\"hotel_id\":{{hotelId}},\r\n\"name\":\"Suite Presidencial\",\r\n\"inventory_count\":2}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}{{apiPrefix}}/rooms",
+              "host": [
+                "{{baseUrl}}{{apiPrefix}}"
+              ],
+              "path": [
+                "rooms"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request POST '{{baseUrl}}{{apiPrefix}}/rooms' --header 'Accept: application/json' --header 'Content-Type: application/json' --data-raw '{\"id\":99999,\"hotel_id\":{{hotelId}},\"name\":\"Suite Presidencial\",\"inventory_count\":2}'"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Update Room",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Suite Presidencial Deluxe\",\r\n\"inventory_count\":3}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}{{apiPrefix}}/rooms/{{roomId}}",
+              "host": [
+                "{{baseUrl}}{{apiPrefix}}"
+              ],
+              "path": [
+                "rooms",
+                "{{roomId}}"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request PUT '{{baseUrl}}{{apiPrefix}}/rooms/{{roomId}}' --header 'Accept: application/json' --header 'Content-Type: application/json' --data-raw '{\"name\":\"Suite Presidencial Deluxe\",\"inventory_count\":3}'"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Room",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": []
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}{{apiPrefix}}/rooms/{{roomId}}",
+              "host": [
+                "{{baseUrl}}{{apiPrefix}}"
+              ],
+              "path": [
+                "rooms",
+                "{{roomId}}"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request DELETE '{{baseUrl}}{{apiPrefix}}/rooms/{{roomId}}' --header 'Accept: application/json'"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reservas",
+      "item": [
+        {
+          "name": "GET Reservations",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}{{apiPrefix}}/reservations",
+              "host": [
+                "{{baseUrl}}{{apiPrefix}}"
+              ],
+              "path": [
+                "reservations"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request GET '{{baseUrl}}{{apiPrefix}}/reservations' --header 'Accept: application/json'"
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Reservation",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"id\":{{reservationId}},\r\n\"hotel_id\":{{hotelId}},\r\n\"room_id\":{{roomId}},\r\n\"roomreservation_id\":{{roomreservation_id}},\"customer_first_name\":\"João\",\r\n\"customer_last_name\":\"Silva\",\r\n\"arrival_date\":\"2026-10-01\",\r\n\"departure_date\":\"2026-10-05\",\r\n\"guest_count\":2,\"guest_type\":\"adult\",\r\n\"meal_plan\":\"Café da manhã incluso\",\r\n\"currency_code\":\"BRL\",\"total_price\":800.0,\"date\":\"2026-03-18\",\"time\":\"14:00:00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}{{apiPrefix}}/reservations",
+              "host": [
+                "{{baseUrl}}{{apiPrefix}}"
+              ],
+              "path": [
+                "reservations"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request POST '{{baseUrl}}{{apiPrefix}}/reservations' --header 'Accept: application/json' --header 'Content-Type: application/json' --data-raw '{\"id\":{{reservationId}},\"hotel_id\":{{hotelId}},\"room_id\":{{roomId}},\"roomreservation_id\":{{roomreservation_id}},\"customer_first_name\":\"João\",\"customer_last_name\":\"Silva\",\"arrival_date\":\"2026-10-01\",\"departure_date\":\"2026-10-05\",\"guest_count\":2,\"guest_type\":\"adult\",\"meal_plan\":\"Café da manhã incluso\",\"currency_code\":\"BRL\",\"total_price\":800.0,\"date\":\"2026-03-18\",\"time\":\"14:00:00\"}'"
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Reservation Com Conflito de Datas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": []
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": []
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"id\":10000,\"hotel_id\":{{hotelId}},\r\n\"room_id\":{{roomId}},\r\n\"roomreservation_id\":9999002,\r\n\"customer_first_name\":\"Maria\",\r\n\"customer_last_name\":\"Santos\",\r\n\"arrival_date\":\"2026-10-03\",\r\n\"departure_date\":\"2026-10-07\",\r\n\"guest_count\":1,\r\n\"guest_type\":\"adult\",\r\n\"meal_plan\":null,\r\n\"currency_code\":\"BRL\",\r\n\"total_price\":400.0,\r\n\"date\":\"2026-03-18\",\r\n\"time\":\"15:00:00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}{{apiPrefix}}/reservations",
+              "host": [
+                "{{baseUrl}}{{apiPrefix}}"
+              ],
+              "path": [
+                "reservations"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request POST '{{baseUrl}}{{apiPrefix}}/reservations' --header 'Accept: application/json' --header 'Content-Type: application/json' --data-raw '{\"id\":10000,\"hotel_id\":{{hotelId}},\"room_id\":{{roomId}},\"roomreservation_id\":9999002,\"customer_first_name\":\"Maria\",\"customer_last_name\":\"Santos\",\"arrival_date\":\"2026-10-03\",\"departure_date\":\"2026-10-07\",\"guest_count\":1,\"guest_type\":\"adult\",\"meal_plan\":null,\"currency_code\":\"BRL\",\"total_price\":400.0,\"date\":\"2026-03-18\",\"time\":\"15:00:00\"}'"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

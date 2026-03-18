@@ -15,25 +15,41 @@ class ImportacaoController extends Controller
 
     public function importarHoteis()
     {
-        $this->servicoImportacao->importarHoteis();
-        return response()->json(['message' => 'Hotéis importados com sucesso!']);
+        try {
+            $this->servicoImportacao->importarHoteis();
+            return response()->json(['message' => 'Hotéis importados com sucesso!']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro ao importar hotéis: ' . $e->getMessage()], 422);
+        }
     }
 
     public function importarQuartos()
     {
-        $this->servicoImportacao->importarQuartos();
-        return response()->json(['message' => 'Quartos importados com sucesso!']);
+        try {
+            $this->servicoImportacao->importarQuartos();
+            return response()->json(['message' => 'Quartos importados com sucesso!']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro ao importar quartos. Verifique se os hotéis foram importados antes: ' . $e->getMessage()], 422);
+        }
     }
 
     public function importarTarifas()
     {
-        $this->servicoImportacao->importarTarifas();
-        return response()->json(['message' => 'Tarifas importadas com sucesso!']);
+        try {
+            $this->servicoImportacao->importarTarifas();
+            return response()->json(['message' => 'Tarifas importadas com sucesso!']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro ao importar tarifas. Verifique se os hotéis foram importados antes: ' . $e->getMessage()], 422);
+        }
     }
 
     public function importarReservas()
     {
-        $this->servicoImportacao->importarReservas();
-        return response()->json(['message' => 'Reservas importadas com sucesso!']);
+        try {
+            $this->servicoImportacao->importarReservas();
+            return response()->json(['message' => 'Reservas importadas com sucesso!']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro ao importar reservas. Verifique se hotéis, quartos e tarifas foram importados antes: ' . $e->getMessage()], 422);
+        }
     }
 }

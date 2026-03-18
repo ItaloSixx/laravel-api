@@ -101,7 +101,7 @@ class ServicoImportacaoXml
     {
         $caminhoXml = database_path('xml/reservations.xml');
         if (!file_exists($caminhoXml)) {
-            throw new \Exception("Arquivo reservations.xml não encontrado.");
+            throw new RuntimeException("Arquivo reservations.xml não encontrado.");
         }
 
         $xml = simplexml_load_file($caminhoXml);

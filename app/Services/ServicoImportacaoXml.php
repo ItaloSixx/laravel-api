@@ -113,16 +113,18 @@ class ServicoImportacaoXml
             $roomId = (int) $resNode->room->id;
             $customerFirstName = (string) $resNode->customer->first_name;
             $customerLastName = (string) $resNode->customer->last_name;
-            $guestCount = (int) $resNode->guest_count['count'];
-            $guestType = (string) $resNode->guest_count['type'];
+            $guestCount = (int) $resNode->room->guest_counts->guest_count['count'];
+            $guestType = (string) $resNode->room->guest_counts->guest_count['type'];
             
-            // Dados diretos
-            $roomReservationId = (int) $resNode->roomreservation_id;
-            $arrivalDate = (string) $resNode->arrival_date;
-            $departureDate = (string) $resNode->departure_date;
-            $mealPlan = isset($resNode->meal_plan) && (string) $resNode->meal_plan !== '' ? (string) $resNode->meal_plan : null;
-            $currencyCode = (string) $resNode->currencycode;
-            $totalPrice = (float) $resNode->totalprice;
+            //Dados da reserva (nó room)
+            $roomReservationId = (int) $resNode->room->roomreservation_id;
+            $arrivalDate = (string) $resNode->room->arrival_date;
+            $departureDate = (string) $resNode->room->departure_date;
+            $mealPlan = isset($resNode->room->meal_plan) && (string) $resNode->room->meal_plan !== '' ? (string) $resNode->room->meal_plan : null;
+            $currencyCode = (string) $resNode->room->currencycode;
+            $totalPrice = (float) $resNode->room->totalprice;
+            
+            //Dados globais
             $date = (string) $resNode->date;
             $time = (string) $resNode->time;
 

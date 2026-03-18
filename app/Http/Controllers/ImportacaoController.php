@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\ServicoImportacaoXml;
+use RuntimeException;
 
 class ImportacaoController extends Controller
 {
@@ -18,8 +19,10 @@ class ImportacaoController extends Controller
         try {
             $this->servicoImportacao->importarHoteis();
             return response()->json(['message' => 'Hotéis importados com sucesso!']);
-        } catch (\Exception $e) {
+        } catch (RuntimeException $e) {
             return response()->json(['message' => 'Erro ao importar hotéis: ' . $e->getMessage()], 422);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro interno ao importar hotéis.'], 500);
         }
     }
 
@@ -28,8 +31,10 @@ class ImportacaoController extends Controller
         try {
             $this->servicoImportacao->importarQuartos();
             return response()->json(['message' => 'Quartos importados com sucesso!']);
+        } catch (RuntimeException $e) {
+            return response()->json(['message' => 'Erro ao importar quartos: ' . $e->getMessage()], 422);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro ao importar quartos. Verifique se os hotéis foram importados antes: ' . $e->getMessage()], 422);
+            return response()->json(['message' => 'Erro interno ao importar quartos.'], 500);
         }
     }
 
@@ -38,8 +43,10 @@ class ImportacaoController extends Controller
         try {
             $this->servicoImportacao->importarTarifas();
             return response()->json(['message' => 'Tarifas importadas com sucesso!']);
+        } catch (RuntimeException $e) {
+            return response()->json(['message' => 'Erro ao importar tarifas: ' . $e->getMessage()], 422);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro ao importar tarifas. Verifique se os hotéis foram importados antes: ' . $e->getMessage()], 422);
+            return response()->json(['message' => 'Erro interno ao importar tarifas.'], 500);
         }
     }
 
@@ -48,8 +55,10 @@ class ImportacaoController extends Controller
         try {
             $this->servicoImportacao->importarReservas();
             return response()->json(['message' => 'Reservas importadas com sucesso!']);
+        } catch (RuntimeException $e) {
+            return response()->json(['message' => 'Erro ao importar reservas: ' . $e->getMessage()], 422);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro ao importar reservas. Verifique se hotéis, quartos e tarifas foram importados antes: ' . $e->getMessage()], 422);
+            return response()->json(['message' => 'Erro interno ao importar reservas.'], 500);
         }
     }
 }

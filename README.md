@@ -1,6 +1,6 @@
 ## Tecnologias
 
-- PHP 8.4 + Laravel 11
+- PHP 8.2+ + Laravel 11
 - MySQL 8.0
 - Docker + Nginx
 - PHPUnit (SQLite :memory: para testes)
@@ -106,6 +106,6 @@ Na pasta `docs/postman/` estão os arquivos prontos para importar:
 | Suite | Arquivo | Cobertura |
 |-------|---------|-----------|
 | Unit | `ServicoReservaTest` | Regra de disponibilidade (adjacências, sobreposições) |
-| Feature | `ImportacaoApiTest` | Importação dos 4 XMLs via API |
-| Feature | `QuartoApiTest` | CRUD completo de quartos |
-| Feature | `ReservaApiTest` | Criação de reserva + conflito de datas |
+| Feature | `ImportacaoApiTest` | Importação dos 4 XMLs + verificação de registros + idempotência |
+| Feature | `QuartoApiTest` | CRUD completo (criar, listar, buscar, atualizar, deletar, 404, 422) |
+| Feature | `ReservaApiTest` | Criação + conflito de datas + listagem + validação room/hotel |

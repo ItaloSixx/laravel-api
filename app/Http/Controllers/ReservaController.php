@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\ServicoReserva;
 use App\Http\Requests\StoreReservaRequest;
-use Exception;
+
 use InvalidArgumentException;
 
 class ReservaController extends Controller

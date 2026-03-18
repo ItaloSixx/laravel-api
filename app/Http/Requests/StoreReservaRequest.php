@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreReservaRequest extends FormRequest
 {
@@ -24,7 +25,10 @@ class StoreReservaRequest extends FormRequest
         return [
             'id' => 'required|integer|unique:reservations,id',
             'hotel_id' => 'required|integer|exists:hotels,id',
-            'room_id' => 'required|integer|exists:rooms,id',
+            'room_id' => [
+                'required', 'integer',
+                Rule::exists('rooms', 'id')->where('hotel_id', $this->hotel_id),
+            ],
             'roomreservation_id' => 'required|integer|unique:reservations,roomreservation_id',
             'customer_first_name' => 'required|string|max:255',
             'customer_last_name' => 'required|string|max:255',

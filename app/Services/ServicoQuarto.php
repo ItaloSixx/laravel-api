@@ -18,9 +18,9 @@ class ServicoQuarto
     /**
      * Busca um quarto específico pelo ID
      */
-    public function buscarPorId($id): ?Quarto
+    public function buscarPorId($id): Quarto
     {
-        return Quarto::find($id);
+        return Quarto::findOrFail($id);
     }
 
     /**

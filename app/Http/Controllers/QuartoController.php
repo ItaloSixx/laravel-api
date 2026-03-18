@@ -29,9 +29,6 @@ class QuartoController extends Controller
     public function show($id)
     {
         $quarto = $this->servicoQuarto->buscarPorId($id);
-        if (!$quarto) {
-            return response()->json(['message' => 'Quarto não encontrado.'], 404);
-        }
         return response()->json($quarto);
     }
 

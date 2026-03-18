@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use RuntimeException;
 use App\Models\Hotel;
 use App\Models\Quarto;
 use App\Models\Tarifa;
@@ -17,7 +18,7 @@ class ServicoImportacaoXml
     {
         $caminhoXml = database_path('xml/hotels.xml');
         if (!file_exists($caminhoXml)) {
-            throw new \Exception("Arquivo hotels.xml não encontrado.");
+            throw new RuntimeException("Arquivo hotels.xml não encontrado.");
         }
 
         $xml = simplexml_load_file($caminhoXml);
@@ -40,7 +41,7 @@ class ServicoImportacaoXml
     {
         $caminhoXml = database_path('xml/rooms.xml');
         if (!file_exists($caminhoXml)) {
-            throw new \Exception("Arquivo rooms.xml não encontrado.");
+            throw new RuntimeException("Arquivo rooms.xml não encontrado.");
         }
 
         $xml = simplexml_load_file($caminhoXml);
@@ -69,7 +70,7 @@ class ServicoImportacaoXml
     {
         $caminhoXml = database_path('xml/rates.xml');
         if (!file_exists($caminhoXml)) {
-            throw new \Exception("Arquivo rates.xml não encontrado.");
+            throw new RuntimeException("Arquivo rates.xml não encontrado.");
         }
 
         $xml = simplexml_load_file($caminhoXml);

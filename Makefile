@@ -49,16 +49,16 @@ seed: ## Executa os seeders
 
 ## ── Importações XML ──────────────────────────────────────────────────────────
 import-hotels: ## Importa hotels.xml
-	curl -s -X POST http://localhost:$${APP_PORT:-8000}/api/import/hotels | cat
+	curl -s -X POST http://localhost:$${APP_PORT:-8000}/api/v1/import/hotels | cat
 
 import-rooms: ## Importa rooms.xml
-	curl -s -X POST http://localhost:$${APP_PORT:-8000}/api/import/rooms | cat
+	curl -s -X POST http://localhost:$${APP_PORT:-8000}/api/v1/import/rooms | cat
 
 import-rates: ## Importa rates.xml
-	curl -s -X POST http://localhost:$${APP_PORT:-8000}/api/import/rates | cat
+	curl -s -X POST http://localhost:$${APP_PORT:-8000}/api/v1/import/rates | cat
 
 import-reservations: ## Importa reservations.xml
-	curl -s -X POST http://localhost:$${APP_PORT:-8000}/api/import/reservations | cat
+	curl -s -X POST http://localhost:$${APP_PORT:-8000}/api/v1/import/reservations | cat
 
 import-all: import-hotels import-rooms import-rates import-reservations ## Importa todos os XMLs em ordem
 	@echo "✅ Todos os XMLs importados!"

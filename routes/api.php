@@ -10,11 +10,13 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::post('/import/hotels', [ImportacaoController::class, 'importarHoteis']);
-Route::post('/import/rooms', [ImportacaoController::class, 'importarQuartos']);
-Route::post('/import/rates', [ImportacaoController::class, 'importarTarifas']);
-Route::post('/import/reservations', [ImportacaoController::class, 'importarReservas']);
+Route::prefix('v1')->group(function () {
+    Route::post('/import/hotels', [ImportacaoController::class, 'importarHoteis']);
+    Route::post('/import/rooms', [ImportacaoController::class, 'importarQuartos']);
+    Route::post('/import/rates', [ImportacaoController::class, 'importarTarifas']);
+    Route::post('/import/reservations', [ImportacaoController::class, 'importarReservas']);
 
-Route::apiResource('rooms', QuartoController::class);
-Route::get('/reservations', [ReservaController::class, 'index']);
-Route::post('/reservations', [ReservaController::class, 'store']);
+    Route::apiResource('rooms', QuartoController::class);
+    Route::get('/reservations', [ReservaController::class, 'index']);
+    Route::post('/reservations', [ReservaController::class, 'store']);
+});

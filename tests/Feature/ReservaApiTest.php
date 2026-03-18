@@ -37,7 +37,7 @@ class ReservaApiTest extends TestCase
             'time' => '12:00:00'
         ];
 
-        $response = $this->postJson('/api/reservations', $payload);
+        $response = $this->postJson('/api/v1/reservations', $payload);
 
         $response->assertStatus(201)
                  ->assertJsonFragment(['customer_first_name' => 'John']);
@@ -64,12 +64,12 @@ class ReservaApiTest extends TestCase
             'time' => '12:00:00'
         ];
 
-        $this->postJson('/api/reservations', $payload);
+        $this->postJson('/api/v1/reservations', $payload);
 
         // Tenta criar outra no mesmo período
         $payload['id'] = 100;
         $payload['roomreservation_id'] = 12346;
-        $response = $this->postJson('/api/reservations', $payload);
+        $response = $this->postJson('/api/v1/reservations', $payload);
 
         $response->assertStatus(422)
                  ->assertJsonFragment(['message' => 'O quarto não está disponível para o período solicitado (conflito de datas).']);

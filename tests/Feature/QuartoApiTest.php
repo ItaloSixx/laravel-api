@@ -15,7 +15,7 @@ class QuartoApiTest extends TestCase
     {
         Hotel::create(['id' => 1, 'name' => 'Teste']);
         
-        $response = $this->postJson('/api/rooms', [
+        $response = $this->postJson('/api/v1/rooms', [
             'id' => 999,
             'hotel_id' => 1,
             'name' => 'Suite Master',
@@ -33,7 +33,7 @@ class QuartoApiTest extends TestCase
         Hotel::create(['id' => 1, 'name' => 'Teste']);
         Quarto::create(['id' => 100, 'hotel_id' => 1, 'name' => 'Quarto Teste', 'inventory_count' => 1]);
 
-        $response = $this->getJson('/api/rooms');
+        $response = $this->getJson('/api/v1/rooms');
         $response->assertStatus(200)
                  ->assertJsonFragment(['name' => 'Quarto Teste']);
     }

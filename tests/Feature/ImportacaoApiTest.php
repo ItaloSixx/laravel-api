@@ -11,33 +11,33 @@ class ImportacaoApiTest extends TestCase
 
     public function test_importacao_de_hoteis()
     {
-        $response = $this->postJson('/api/import/hotels');
+        $response = $this->postJson('/api/v1/import/hotels');
         $response->assertStatus(200);
     }
 
     public function test_importacao_de_quartos()
     {
-        $this->postJson('/api/import/hotels');
+        $this->postJson('/api/v1/import/hotels');
         
-        $response = $this->postJson('/api/import/rooms');
+        $response = $this->postJson('/api/v1/import/rooms');
         $response->assertStatus(200);
     }
 
     public function test_importacao_de_tarifas()
     {
-        $this->postJson('/api/import/hotels');
+        $this->postJson('/api/v1/import/hotels');
         
-        $response = $this->postJson('/api/import/rates');
+        $response = $this->postJson('/api/v1/import/rates');
         $response->assertStatus(200);
     }
 
     public function test_importacao_de_reservas()
     {
-        $this->postJson('/api/import/hotels');
-        $this->postJson('/api/import/rooms');
-        $this->postJson('/api/import/rates');
+        $this->postJson('/api/v1/import/hotels');
+        $this->postJson('/api/v1/import/rooms');
+        $this->postJson('/api/v1/import/rates');
 
-        $response = $this->postJson('/api/import/reservations');
+        $response = $this->postJson('/api/v1/import/reservations');
         $response->assertStatus(200);
     }
 }
